@@ -65,10 +65,12 @@ sequences.forEach(function (item, index, array) {
 var current_fs, next_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
+var form = $("form");
 
 function nextSection() {
   if (animating) return false;
-  if ($(this).hasClass("inactive-button")) return false;
+  form.validate();
+  if(!form.valid()) return false;
   animating = true;
 
   current_fs = $(this).parent();
@@ -77,36 +79,34 @@ function nextSection() {
     letter = $(this).attr("alt");
     current_fs.children(".hidden").val(letter);
   }
-  /*if (current_fs.attr("class") == "validate") {
-    if (!validate()) return false;
-  }*/
-  //show the next fieldset
-  next_fs.show();
-  //hide the current fieldset with style
-  current_fs.animate({
-    opacity: 0
-    }, {
-    step: function(now, mx) {
-      opacity = 1 - now;
-      current_fs.css("position", "absolute");
-      next_fs.css("opacity", opacity);
-    },
-    duration: 400,
-    complete: function() {
-      current_fs.hide();
-      animating = false;
-    },
-  });
-  // submit when clicking on a button in the penultimate group
-  if (next_fs.attr("id") != "final") {
-    return false;
-  } else {
+  
+  if (next_fs.attr("id") == "final") {
+    // submit when clicking on a button in the penultimate group
     $("form").submit();
+  } else {
+    //show the next fieldset
+    next_fs.show();
+    //hide the current fieldset with style
+    current_fs.animate({
+      opacity: 0
+      }, {
+      step: function(now, mx) {
+        opacity = 1 - now;
+        current_fs.css("position", "absolute");
+        next_fs.css("opacity", opacity);
+      },
+      duration: 400,
+      complete: function() {
+        current_fs.hide();
+        animating = false;
+      },
+    });
+    return false;
   }
 }
 
+/*
 function validate() {
-  var form = $("form");
   button = $(this).siblings(".next");
   form.validate();
   if(form.valid()) {
@@ -114,7 +114,7 @@ function validate() {
   } else {
     button.addClass("inactive-button");
   }
-}
+}*/
 
 jQuery.validator.setDefaults({
   errorPlacement: function(error, element) {
@@ -122,6 +122,7 @@ jQuery.validator.setDefaults({
   }
 });
 
-$(".next").click(nextSection);
-$("fieldset.validate input.required").change(validate);
+$(".next").click(nextSection);/*
+$("fieldset.validate input").change(validate);
+$("fieldset.validate input").blur(validate);*/
 

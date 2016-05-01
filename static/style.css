@@ -108,12 +108,8 @@ h3 {
 	margin: 10px 0;
 }
 
-#msform .inactive-button {
-	background: #eee;
-}
-
-#msform .inactive-button:hover {
-	border: 0;
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
 #msform .letter-button {
@@ -126,10 +122,6 @@ h3 {
 
 #msform .letter-button:hover {
     border: 5px solid #d00;
-}
-
-#msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
 h4 {
