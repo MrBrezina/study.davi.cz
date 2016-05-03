@@ -33,15 +33,22 @@ function shuffle(a) {
 }
 
 shuffle(sequences);
+
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
   triplets = item[1];
+  naturalIndex = index + 1;
 
   shuffle(triplets);
+
   // create sequence intro fieldset
+  // add hidden input to record the order of typeface sequences
   $("#final").before('<fieldset id="' + typeface + '" class="text"></fieldset>');
-  $("#"+typeface).html($(".sequence-intro").html());
-  $("#"+typeface+" h2").html("Letter-groups sequence "+(index+1)+"/"+totalSequences)
+  $("#"+typeface).prepend('<h2>Letter-groups sequence ' + naturalIndex + '/' + totalSequences + '</h2>');
+  $("#"+typeface).append('<p>In this part, groups of three letters will be presented one by one. For each group, quickly click on the most different letter. When doing so, please consider only the shapes, not the meaning of the letters or letter groups.</p>');
+  $("#"+typeface).append('<input type="hidden" name="Order (' + typeface + ')" value="' + naturalIndex + '">');
+  $("#"+typeface).append('<input type="button" name="next" class="next action-button" value="Start">');
+
   triplets.forEach(function (triplet, index, array) {
     tripletID =  typeface + "_" + triplet[0] + "-" + triplet[1] + "-" + triplet[2];
     shuffle(triplet);
