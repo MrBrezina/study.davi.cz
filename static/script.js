@@ -1,7 +1,7 @@
 // sequences of triplets
 
 var sequences = [
-// PT Sans: triplet combinations of ['h', 'n', 'm', 'z', 'g', 'q', 'r', 'y']
+// PT Serif: triplet combinations of ['h', 'n', 'm', 'z', 'g', 'q', 'r', 'y']
 ['pt-serif', [['h', 'm', 'n'], ['h', 'n', 'z'], ['g', 'h', 'n'], ['h', 'n', 'q'], ['h', 'n', 'r'], ['h', 'n', 'y'], ['h', 'm', 'z'], ['g', 'h', 'm'], ['h', 'm', 'q'], ['h', 'm', 'r'], ['h', 'm', 'y'], ['g', 'h', 'z'], ['h', 'q', 'z'], ['h', 'r', 'z'], ['h', 'y', 'z'], ['g', 'h', 'q'], ['g', 'h', 'r'], ['g', 'h', 'y'], ['h', 'q', 'r'], ['h', 'q', 'y'], ['h', 'r', 'y'], ['m', 'n', 'z'], ['g', 'm', 'n'], ['m', 'n', 'q'], ['m', 'n', 'r'], ['m', 'n', 'y'], ['g', 'n', 'z'], ['n', 'q', 'z'], ['n', 'r', 'z'], ['n', 'y', 'z'], ['g', 'n', 'q'], ['g', 'n', 'r'], ['g', 'n', 'y'], ['n', 'q', 'r'], ['n', 'q', 'y'], ['n', 'r', 'y'], ['g', 'm', 'z'], ['m', 'q', 'z'], ['m', 'r', 'z'], ['m', 'y', 'z'], ['g', 'm', 'q'], ['g', 'm', 'r'], ['g', 'm', 'y'], ['m', 'q', 'r'], ['m', 'q', 'y'], ['m', 'r', 'y'], ['g', 'q', 'z'], ['g', 'r', 'z'], ['g', 'y', 'z'], ['q', 'r', 'z'], ['q', 'y', 'z'], ['r', 'y', 'z'], ['g', 'q', 'r'], ['g', 'q', 'y'], ['g', 'r', 'y'], ['q', 'r', 'y']]]
 ,
 // PT Sans: triplet combinations of ['q', 'p', 'b', 'z', 'w', 'f', 'n', 'i']
