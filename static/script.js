@@ -33,10 +33,11 @@ sequences.forEach(function (item, index, array) {
   typeface = item[0];
   triplets = item[1];
   naturalIndex = index + 1;
-  if index > 0:
+  if (index > 0) {
     another = "another "
-  else:
+  } else {
     another = ""
+  }
 
   shuffle(triplets);
 
