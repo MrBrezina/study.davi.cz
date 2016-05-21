@@ -45,7 +45,7 @@ sequences.forEach(function (item, index, array) {
   // add hidden input to record the order of typeface sequences
   $("#final").before('<fieldset id="' + typeface + '" class="text"></fieldset>');
   $("#"+typeface).prepend('<h2>Letter-groups sequence ' + naturalIndex + '/' + totalSequences + '</h2>');
-  $("#"+typeface).append('<p>In this part, '+another+triplets.length+' groups of three letters will be shown one by one. For each group, quickly click on the most different letter. When doing so, please consider only the shapes, not the meaning of the letters or letter groups.</p>');
+  $("#"+typeface).append('<p>In this part, '+another+triplets.length+' groups of three letters will be shown one by one. For each group, quickly click on the most different letter. When doing so, please consider only the shapes, not the meaning of the letters or letter groups. Please, give your best answer even when it is difficult to decide. There are no incorrect answers.</p>');
   $("#"+typeface).append('<input type="hidden" name="Order (' + typeface + ')" value="' + naturalIndex + '">');
   $("#"+typeface).append('<input type="button" name="next" class="next action-button" value="Start">');
 
