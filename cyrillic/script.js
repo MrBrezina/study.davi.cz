@@ -27,9 +27,9 @@ sequences.forEach(function (item, index, array) {
   triplets = item[1];
   naturalIndex = index + 1;
   if (index > 0) {
-    another = "показана другая последовательность из "
+    another = " показана другая последовательность из "
   } else {
-    another = "последовательно показано "
+    another = " показано "
   }
 
   shuffle(triplets);
@@ -38,7 +38,7 @@ sequences.forEach(function (item, index, array) {
   // add hidden input to record the order of typeface sequences
   $("#final").before('<fieldset id="' + typeface + '" class="text"></fieldset>');
   $("#"+typeface).prepend('<h2>Последовательность буквенных троек ' + naturalIndex + '/' + totalSequences + '</h2>');
-  $("#"+typeface).append('<p>На этом этапе Вам будет показана другая '+another+triplets.length+' трехбуквенных групп. Пожалуйста быстро выберите в каждой группе букву, наиболее отличающуюся от двух остальных. Ваш выбор должен основываться только на форме букв, а не на их смысловом значении или возможном смысле троек. Будьте добры дать тот ответ который Вам покажется лучшим, даже если у Вас возникнут затруднения. Неправильных ответов нет.</p>');
+  $("#"+typeface).append('<p>На этом этапе Вам будет '+another+triplets.length+' трехбуквенных групп. Пожалуйста быстро выберите в каждой группе букву, наиболее отличающуюся от двух остальных. Ваш выбор должен основываться только на форме букв, а не на их смысловом значении или возможном смысле троек. Будьте добры дать тот ответ который Вам покажется лучшим, даже если у Вас возникнут затруднения. Неправильных ответов нет.</p>');
   $("#"+typeface).append('<input type="hidden" name="Order (' + typeface + ')" value="' + naturalIndex + '">');
   $("#"+typeface).append('<input type="button" name="next" class="next action-button" value="Начать">');
 
