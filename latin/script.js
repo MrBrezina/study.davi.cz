@@ -9,7 +9,6 @@ sequences.forEach(function (item, index, array) {
 });
 
 // shuffle array in place
-
 function shuffle(a) {
   var j, x, i;
   for (i = a.length; i; i -= 1) {
@@ -20,7 +19,11 @@ function shuffle(a) {
   }
 }
 
+// randomize the order of sequences
 shuffle(sequences);
+
+// select just one sequence (this was not used in the first run: triplets-1.js)
+sequences = [sequences[0]]
 
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
@@ -32,6 +35,7 @@ sequences.forEach(function (item, index, array) {
     another = ""
   }
 
+  // randmoize the order of triplets
   shuffle(triplets);
 
   // create sequence intro fieldset
@@ -44,6 +48,7 @@ sequences.forEach(function (item, index, array) {
 
   triplets.forEach(function (triplet, index, array) {
     tripletID =  typeface + "_" + triplet[0] + "-" + triplet[1] + "-" + triplet[2];
+    // randomize the order of characters
     shuffle(triplet);
     // create triplet fieldset
     $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">Click on the most different letter shape</h2></fieldset>');
