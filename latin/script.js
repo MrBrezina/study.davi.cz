@@ -53,7 +53,7 @@ sequences.forEach(function (item, index, array) {
     // randomize the order of characters
     shuffle(triplet);
     // create triplet fieldset
-    $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">Click on the most different letter shape</h2></fieldset>');
+    $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">Click on the most different letter shape from the three below</h2></fieldset>');
     fs = $("#fs_"+tripletID)
     // add letters
     triplet.forEach(function (letter, index, array) {
