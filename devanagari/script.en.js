@@ -1,15 +1,4 @@
-// shared code
-
-var tripletIndex = 0;
-var totalTriplets = 0;
-var totalSequences;
-totalSequences = sequences.length;
-sequences.forEach(function (item, index, array) {
-  totalTriplets += item[1].length;
-});
-
-// shuffle array in place
-
+// function to shuffle array in place
 function shuffle(a) {
   var j, x, i;
   for (i = a.length; i; i -= 1) {
@@ -20,7 +9,19 @@ function shuffle(a) {
   }
 }
 
+// randomize the order of sequences
 shuffle(sequences);
+
+// select just one sequence (this was not used in the first run: triplets-1.js)
+sequences = [sequences[0]]
+
+var tripletIndex = 0;
+var totalTriplets = 0;
+var totalSequences;
+sequences.forEach(function (item, index, array) {
+  totalTriplets += item[1].length;
+});
+totalSequences = sequences.length;
 
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
@@ -32,18 +33,24 @@ sequences.forEach(function (item, index, array) {
     another = ""
   }
 
+  // randomize the order of triplets
   shuffle(triplets);
 
   // create sequence intro fieldset
   // add hidden input to record the order of typeface sequences
   $("#final").before('<fieldset id="' + typeface + '" class="text"></fieldset>');
-  $("#"+typeface).prepend('<h2>Letter-groups sequence ' + naturalIndex + '/' + totalSequences + '</h2>');
+  if (totalSequences != 1) {
+    $("#"+typeface).prepend('<h2>Letter-groups sequence ' + naturalIndex + '/' + totalSequences + '</h2>');
+  } else {
+    $("#"+typeface).prepend('<h2>Letter-groups sequence</h2>');
+  }
   $("#"+typeface).append('<p>In this part, '+another+triplets.length+' groups of three letters will be shown one by one. For each group, quickly click on the most different letter. When doing so, please consider only the shapes, not the meaning of the letters or letter groups. Please, give your best answer even when it is difficult to decide. There are no incorrect answers.</p>');
   $("#"+typeface).append('<input type="hidden" name="Order (' + typeface + ')" value="' + naturalIndex + '">');
   $("#"+typeface).append('<input type="button" name="next" class="next action-button" value="Start">');
 
   triplets.forEach(function (triplet, index, array) {
     tripletID =  typeface + "_" + triplet[0] + "-" + triplet[1] + "-" + triplet[2];
+    // randomize the order of characters
     shuffle(triplet);
     // create triplet fieldset
     $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">Click on the most different letter shape</h2></fieldset>');

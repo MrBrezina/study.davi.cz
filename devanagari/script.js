@@ -1,15 +1,4 @@
-// shared code
-
-var tripletIndex = 0;
-var totalTriplets = 0;
-var totalSequences;
-totalSequences = sequences.length;
-sequences.forEach(function (item, index, array) {
-  totalTriplets += item[1].length;
-});
-
-// shuffle array in place
-
+// function to shuffle array in place
 function shuffle(a) {
   var j, x, i;
   for (i = a.length; i; i -= 1) {
@@ -20,7 +9,19 @@ function shuffle(a) {
   }
 }
 
+// randomize the order of sequences
 shuffle(sequences);
+
+// select just one sequence (this was not used in the first run: triplets-1.js)
+sequences = [sequences[0]]
+
+var tripletIndex = 0;
+var totalTriplets = 0;
+var totalSequences;
+sequences.forEach(function (item, index, array) {
+  totalTriplets += item[1].length;
+});
+totalSequences = sequences.length;
 
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
@@ -32,18 +33,24 @@ sequences.forEach(function (item, index, array) {
     another = ""
   }
 
+  // randomize the order of triplets
   shuffle(triplets);
 
   // create sequence intro fieldset
   // add hidden input to record the order of typeface sequences
   $("#final").before('<fieldset id="' + typeface + '" class="text"></fieldset>');
-  $("#"+typeface).prepend('<h2>अक्षर-समूह अनुक्रम ' + naturalIndex + '/' + totalSequences + '</h2>');
+  if (totalSequences != 1) {
+    $("#"+typeface).prepend('<h2>अक्षर-समूह अनुक्रम ' + naturalIndex + '/' + totalSequences + '</h2>');
+  } else {
+    $("#"+typeface).prepend('<h2>अक्षर-समूह अनुक्रम</h2>');
+  }
   $("#"+typeface).append('<p>इस भाग में, तीन अक्षरों के '+another+triplets.length+' समूह आपको एक एक करके दिखाया जाएगा। प्रत्येक समूह के लिए, जल्द से जल्द, सबसे अलग अक्षर पर क्लिक करें। केवल अक्षर के आकार के आधार पर चुने । अक्षर या अक्षर समूहों के अर्थ पर विचार न करें। तय करना मुश्किल होने पर कृपया अपना सर्वश्रेष्ठ जवाब दे । इसमें कोई गलत जवाब हैं।</p>');
   $("#"+typeface).append('<input type="hidden" name="Order (' + typeface + ')" value="' + naturalIndex + '">');
   $("#"+typeface).append('<input type="button" name="next" class="next action-button" value="प्रारंभ">');
 
   triplets.forEach(function (triplet, index, array) {
     tripletID =  typeface + "_" + triplet[0] + "-" + triplet[1] + "-" + triplet[2];
+    // randomize the order of characters
     shuffle(triplet);
     // create triplet fieldset
     $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">सबसे अलग अक्षर आकार पर क्लिक करें</h2></fieldset>');

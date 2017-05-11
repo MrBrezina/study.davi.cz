@@ -33,7 +33,7 @@ sequences.forEach(function (item, index, array) {
     another = ""
   }
 
-  // randmoize the order of triplets
+  // randomize the order of triplets
   shuffle(triplets);
 
   // create sequence intro fieldset
