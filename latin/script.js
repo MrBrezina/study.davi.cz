@@ -3,7 +3,6 @@
 var tripletIndex = 0;
 var totalTriplets = 0;
 var totalSequences;
-totalSequences = sequences.length;
 sequences.forEach(function (item, index, array) {
   totalTriplets += item[1].length;
 });
@@ -24,6 +23,7 @@ shuffle(sequences);
 
 // select just one sequence (this was not used in the first run: triplets-1.js)
 sequences = [sequences[0]]
+totalSequences = sequences.length;
 
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
