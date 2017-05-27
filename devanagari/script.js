@@ -12,7 +12,7 @@ function shuffle(a) {
 // randomize the order of sequences
 shuffle(sequences);
 
-// select just one sequence (this was not used in the first run: triplets-1.js)
+// select just one sequence (this was not used in the first run)
 sequences = [sequences[0]]
 
 var tripletIndex = 0;
