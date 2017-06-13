@@ -25,7 +25,8 @@ totalSequences = sequences.length;
 
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
-  triplets = item[1];
+  form_url = item[1];
+  triplets = item[2];
   naturalIndex = index + 1;
   if (index > 0) {
     another = "ओर "
@@ -35,6 +36,9 @@ sequences.forEach(function (item, index, array) {
 
   // randomize the order of triplets
   shuffle(triplets);
+
+  // set url of the form to submit to
+  $("#msform").attr("action", form_url)
 
   // create sequence intro fieldset
   // add hidden input to record the order of typeface sequences
