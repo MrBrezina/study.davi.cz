@@ -25,7 +25,8 @@ totalSequences = sequences.length;
 
 sequences.forEach(function (item, index, array) {
   typeface = item[0];
-  triplets = item[1];
+  form_url = item[1];
+  triplets = item[2];
   naturalIndex = index + 1;
   if (index > 0) {
     another = "another "
@@ -36,6 +37,9 @@ sequences.forEach(function (item, index, array) {
   // randomize the order of triplets
   shuffle(triplets);
 
+  // set url of the form to submit to
+  $("#msform").attr("action", form_url)
+
   // create sequence intro fieldset
   // add hidden input to record the order of typeface sequences
   $("#final").before('<fieldset id="' + typeface + '" class="text"></fieldset>');
@@ -44,7 +48,7 @@ sequences.forEach(function (item, index, array) {
   } else {
     $("#"+typeface).prepend('<h2>Letter-groups sequence</h2>');
   }
-  $("#"+typeface).append('<p>In this part, '+another+triplets.length+' groups of three letters will be shown one by one. For each group, quickly click on the most different letter. When doing so, please consider only the shapes, not the meaning of the letters or letter groups. Please, give your best answer even when it is difficult to decide. There are no incorrect answers.</p>');
+  $("#"+typeface).append('<p>In this part, '+another+triplets.length+' groups of three letters will be shown one by one. For each group, quickly click on the letter that is most different from the other two. When doing so, please consider only the shapes, not the meaning of the letters or letter groups. Please, give your best answer even when it is difficult to decide. There are no incorrect answers.</p>');
   $("#"+typeface).append('<input type="hidden" name="Order (' + typeface + ')" value="' + naturalIndex + '">');
   $("#"+typeface).append('<input type="button" name="next" class="next action-button" value="Start">');
 
@@ -53,7 +57,7 @@ sequences.forEach(function (item, index, array) {
     // randomize the order of characters
     shuffle(triplet);
     // create triplet fieldset
-    $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">Click on the most different letter shape from the three below</h2></fieldset>');
+    $("#final").before('<fieldset class="triplet" id="fs_' + tripletID + '"><h2 class="fs-title">Click on the letter that is most different from the other two</h2></fieldset>');
     fs = $("#fs_"+tripletID)
     // add letters
     triplet.forEach(function (letter, index, array) {
