@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>Letter resemblance study</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js'></script>
+	
+	<script type="text/javascript">
+      window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+        heap.load("2797915021");
+	</script>
+</head>
+
+
+<body>
+<div id="content">
+
+<form id="msform" accept-charset="UTF-8" action="https://www.getform.org/f/8b8cc5e7-ab5c-4685-9858-4c91f82d2393" method="POST">
+
+<fieldset id="introduction" class="text">
+    <h2>Letter resemblance study</h2>
+    <h3>Hello,</h3>
+
+	<p>this study looks at shape resemblance between letters of the Latin alphabet. First, you will be given a simple questionnaire about your background. Afterward, you will be presented with a sequence of letter triplets. The triplets use the same letters in various combinations. For each triplet, you will be asked to quickly pick the most different letter (the odd one out). Completing the study should not take more than seven minutes. All responses are recorded at the very end. <strong>For that reason, do not use Back or Reload browser buttons during the study.</strong></p>
+
+	<p>You have to be 18 years or older to participate. By returning the results, you are giving your consent for the information you provide to be used in my research. All data will remain anonymous. At the end of the questionnaire, you can enter your email if you wish to learn about the results of the study. This is optional.</p>
+
+	<p>This project has been reviewed by the Research Ethics Committee of the University of Reading and has been given a favourable ethical opinion for conduct.</p>
+
+	<input type="button" name="next" class="next action-button" value="Start">
+
+	<p class="gray">If you wish to know more about the research or have a query about this study, please contact:<br><br>
+	David Březina<br>
+	University of Reading<br>
+	Department of Typography &amp; Graphic Communication<br>
+	<a href="mailto:d.brezina@pgr.reading.ac.uk">d.brezina@pgr.reading.ac.uk</a>
+	</p>
+</fieldset>
+	
+<fieldset class="validate">
+    <h2>Questionnaire</h2>
+    <h3>Please answer all questions. Only the last item is optional.</h3>
+
+    <strong>What is your native language? *</strong>
+    <br><em>If you are native to more than one language, list all of them.</em>
+    <input type="text" name="Native languages" required>
+    <strong>Which languages can you read fluently? *</strong>
+    <br><em>Include the native language(s) as well.</em>
+    <input type="text" name="Fluent languages" required>
+    <strong>What is your age? *</strong>
+    <select id="id-age" name="Age" required>
+		<option value="" selected="selected">---------</option>
+		<option value="18–30 years">18-30 years</option>
+		<option value="31–40 years">31-40 years</option>
+		<option value="41–50 years">41-50 years</option>
+		<option value="51–60 years">51-60 years</option>
+		<option value="61–70 years">61-70 years</option>
+		<option value="71–80 years">71-80 years</option>
+		<option value="81 and more years">81 and more years</option>
+	</select>
+	
+    
+    <strong>How often do you read books or long articles? *</strong>
+    <br><em>E. g. long articles in magazines, newspapers, or on the web</em>
+	<select id="id-reading-skills" name="Reading skills" required>
+		<option value="" selected="selected">---------</option>
+		<option value="Daily">Daily</option>
+		<option value="Often, but not daily">Often, but not daily</option>
+		<option value="Little">Little</option>
+		<option value="Very_little">Very little</option>
+	</select>
+	
+    <strong>If you are a designer, what is your discipline? *</strong>
+    <select id="id-design-skills" name="Design skills" required>
+		<option value="Non-designer" selected="selected">I am not a designer</option>
+		<option value="Graphic designer">I am a graphic designer</option>
+		<option value="Typographer">I am a typographer</option>
+		<option value="Letter designer">I am designing letters (type, calligraphy, lettering)</option>
+		<option value="Other designer">Other kind of designer</option>
+	</select>
+	
+    <strong>Your email (only if you would like to learn about the results)</strong>
+    <input type="text" name="Email">
+
+    <input type="button" name="next" class="next action-button" value="Next">
+</fieldset>
+
+
+<!-- this is never shown, used by jQuery insertion of other fieldsets from the end -->
+<fieldset id="final" class="text">
+    <h2>Finished</h2>
+	<p>Your submission has been saved. Thank you for participating!</p>
+</fieldset>
+
+</form>
+</div>
+
+<script src='triplets.js'></script>
+<script src='script.js'></script>
+
+</body>
+</html>
